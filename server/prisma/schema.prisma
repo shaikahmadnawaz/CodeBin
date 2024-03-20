@@ -12,3 +12,12 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Snippet {
+  id         Int      @id @default(autoincrement())
+  username   String
+  language   String
+  stdin      String?
+  sourceCode String
+  createdAt  DateTime @default(now())
+}
