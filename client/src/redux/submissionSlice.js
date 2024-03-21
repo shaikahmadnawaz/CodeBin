@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "@/utils/api";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 
@@ -20,12 +20,9 @@ export const getAllSubmissions = createAsyncThunk(
 
 export const createSubmission = createAsyncThunk(
   "submission/createSubmission",
-  async (submission, { rejectWithValue }) => {
+  async (payload, { rejectWithValue }) => {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/submissions",
-        submission
-      );
+      const response = await axios.post("/api/v1/submissions", payload);
       console.log(response.data);
       return response.data;
     } catch (error) {

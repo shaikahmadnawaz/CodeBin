@@ -42,16 +42,11 @@ const SubmissionForm = () => {
   const { isLoading } = useSelector((state) => state.submission);
 
   const handleSubmission = async (data) => {
-    const submissionData = new FormData();
     data.language = language;
-
-    Object.keys(data).forEach((key) => {
-      submissionData.append(key, data[key]);
-    });
 
     console.log(data);
 
-    const response = await dispatch(createSubmission(submissionData));
+    const response = await dispatch(createSubmission(data));
     if (response.meta.requestStatus === "fulfilled") {
       navigate("/submissions");
     }
