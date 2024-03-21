@@ -1,4 +1,4 @@
-const AllSnippets = () => {
+const AllSubmissions = () => {
   return (
     <div className="container flex flex-col items-center w-full py-8 gap-y-8">
       AllSnippets
@@ -6,4 +6,4 @@ const AllSnippets = () => {
   );
 };
 
-export default AllSnippets;
+export default AllSubmissions;
